@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: influxdb-jmeter
+  labels:
+    database: influxdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      database: influxdb
+  template:
+    metadata:
+      labels:
+        database: influxdb
+    spec:
+      containers:
+        - name: influxdb-jmeter-c00
+          image: uddeshya307/jmeter-influxdb:1.8.0
+          ports:
+          - containerPort: 8086
+          env:
+          - name: INFLUXDB_META_DIR
+            value: /var/lib/influxdb/meta
+          - name: INFLUXDB_DATA_DIR
+            value: /var/lib/influxdb/data
+          - name: INFLUXDB_DATA_WAL_DIR
+            value: /var/lib/influxdb/wal    
+          - name: INFLUXDB_GRAPHITE_0_BIND_ADDRESS
+            value: :2003
+          - name: INFLUXDB_GRAPHITE_0_ENABLED
+            value: "true"
+          - name: INFLUXDB_GRAPHITE_0_DATABASE
+            value: jmeter
+          - name: INFLUXDB_DB
+            value: jmeter 
+      

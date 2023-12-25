@@ -1,0 +1,44 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: jmeter-controller
+  labels:
+    jmeter: controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      jmeter: controller
+  template:
+    metadata:
+      labels:
+        jmeter: controller
+    spec:
+      containers: 
+      - name: jmeter-controller-c00
+        image: uddeshya307/jmeter-controller:latest
+        command: ["/bin/bash","-c"]
+        args: 
+        - >
+          /jmeter/load_test /jmeter/{{ .Values.load_test.script }} &&
+          while true;
+          do sleep 40; 
+          done
+        volumeMounts:
+          - name: jmeter-scripts
+            mountPath: jmeter/{{ .Values.load_test.script }}
+            subPath: "{{ .Values.load_test.script }}"
+          - name: load-test
+            mountPath: jmeter/load_test
+            subPath: "load_test"
+        ports:
+        - name: client-rmi-loca
+          containerPort: 60000
+      volumes:
+        - name: jmeter-scripts
+          configMap:
+            name: my-config
+        - name: load-test
+          configMap:
+            name: jmeter-controller-config
+            defaultMode: 0755
