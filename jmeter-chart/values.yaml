@@ -5,7 +5,7 @@
   
 load_test:
   worker_pods: 3
-  script: "test.jmx"
+  script: "test-influxdb-listener.jmx"
 
 config:
   name: my-config
