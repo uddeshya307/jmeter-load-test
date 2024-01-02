@@ -1,5 +1,4 @@
-FROM jmeter-base:latest
-MAINTAINER Kubernauts-lab
+FROM uddeshya307/jmeter-base:latest
 		
 EXPOSE 1099 50000
 		

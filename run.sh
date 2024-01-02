@@ -1,4 +1,3 @@
-helm create jmeter-load-chart
-helm lint jmeter-chart
-helm install jmeter-grafana-chart jmeter-chart
-helm uninstall jmeter-grafana-chart
+#!/bin/bash
+helm lint jmeter-grafana-chart
+helm install jmeter-grafana jmeter-grafana-chart

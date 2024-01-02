@@ -2,6 +2,7 @@ kind: Service
 apiVersion: v1 
 metadata:
   name: jmeter-worker-svc
+  namespace: jmeter-grafana
   labels:
     app: worker-service
 spec: 

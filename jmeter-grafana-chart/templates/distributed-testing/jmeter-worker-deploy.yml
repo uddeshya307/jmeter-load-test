@@ -2,10 +2,11 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: jmeter-worker
+  namespace: jmeter-grafana
   labels:
     jmeter: worker
 spec:
-  replicas: {{ .Values.load_test.worker_pods }}
+  replicas: 2
   selector:
     matchLabels:
       jmeter: worker

@@ -236,7 +236,7 @@
               </elementProp>
               <elementProp name="influxdbUrl" elementType="Argument">
                 <stringProp name="Argument.name">influxdbUrl</stringProp>
-                <stringProp name="Argument.value">http://jmeter-influxdb-svc:8086/write?db=jmeter</stringProp>
+                <stringProp name="Argument.value">http://jmeter-influxdb-svc:8086/write?db=my_db</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="application" elementType="Argument">
@@ -266,11 +266,11 @@
               </elementProp>
               <elementProp name="testTitle" elementType="Argument">
                 <stringProp name="Argument.name">testTitle</stringProp>
-                <stringProp name="Argument.value">Test name</stringProp>
+                <stringProp name="Argument.value"></stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
               <elementProp name="eventTags" elementType="Argument">
-                <stringProp name="Argument.name">eventTags</stringProp>
+                <stringProp name="Argument.name"></stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
