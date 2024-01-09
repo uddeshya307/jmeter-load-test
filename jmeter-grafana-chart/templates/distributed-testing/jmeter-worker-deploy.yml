@@ -6,7 +6,7 @@ metadata:
   labels:
     jmeter: worker
 spec:
-  replicas: 2
+  replicas: {{ .Values.load_test.worker_pods }}
   selector:
     matchLabels:
       jmeter: worker
